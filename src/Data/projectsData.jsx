@@ -5,6 +5,9 @@ import weatherImg from "../Images/weatherImg.png";
 import virtualAssistantImg from "../Images/virtualAssistantImg.png";
 import texttoimg from "../Images/text-2-image.png";
 import chatWeb from '../Images/chatWeb.png'
+import ServiceBook from '../Images/ServiceBook.png'
+import RestuarentWeb from '../Images/RestuarentWeb.png'
+import Booking from '../Images/Booking.png'
 export const projects = [
   {
     id: 1,
@@ -76,6 +79,33 @@ export const projects = [
     live: "https://chit-chat-web-zeta.vercel.app/",
     new: true,         
     // featured: true     
+  },
+  {
+    id: 8,
+    title: "Service Booking Platform",
+    description:
+      "A full-stack service booking platform with user and admin roles, allowing users to book services and admins to manage services and bookings.",
+    image: ServiceBook, 
+    tech: ["MERN", "React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Tailwind CSS"],
+    category: "MERN"
+  },
+  {
+    id: 9,
+    title: "Restaurant Management System",
+    description:
+      "A full-stack restaurant management system to manage menus, orders, reservations, and admin operations with secure authentication.",
+    image: RestuarentWeb, 
+    tech: ["MERN", "React.js", "Node.js", "Express.js", "MongoDB", "Cloudinary", "Tailwind CSS"],
+    category: "MERN"
+  },
+  {
+    id: 10,
+    title: "Booking Website",
+    description:
+      "A full-stack booking website with a customer reservation system and a separate admin dashboard to manage bookings and availability.",
+    image: "", // add image later
+    tech: ["MERN", "React.js", "Node.js", "Express.js", "MongoDB"],
+    category: "MERN"
   }
   
 ];
