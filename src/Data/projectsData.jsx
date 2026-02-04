@@ -4,7 +4,7 @@ import Leet from "../Images/Leet.png";
 import weatherImg from "../Images/weatherImg.png";
 import virtualAssistantImg from "../Images/virtualAssistantImg.png";
 import texttoimg from "../Images/text-2-image.png";
-import chatWeb from '../Images/chatWeb.png'
+import chatWeb from '../Images/ChatWEB.png'
 import ServiceBook from '../Images/ServiceBook.png'
 import RestuarentWeb from '../Images/RestuarentWeb.png'
 import Booking from '../Images/Booking.png'
