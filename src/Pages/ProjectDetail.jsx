@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import { projects } from "../Data/projectsData";
 
 export default function ProjectDetail() {
@@ -50,32 +50,6 @@ export default function ProjectDetail() {
             </span>
           ))}
         </div>
-
-        {/* Links */}
-      {/* Links */}
-<div className="flex flex-wrap gap-4 mt-4">
-  <a
-    href={project.github}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm sm:text-base font-semibold 
-    bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 
-    hover:bg-gray-700 dark:hover:bg-gray-200 transition"
-  >
-    <FaGithub className="text-black dark:text-gray-900" /> View Code
-  </a>
-
-  <a
-    href={project.live}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm sm:text-base font-semibold 
-    bg-indigo-500 text-white hover:bg-indigo-600 transition"
-  >
-    <FaExternalLinkAlt className="text-black" /> Live Demo
-  </a>
-</div>
-
       </div>
     </div>
   );

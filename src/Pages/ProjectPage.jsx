@@ -11,47 +11,7 @@ export default function ProjectsPage() {
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === "All") return projects;
-
-    // 🟢 MERN Filter (React + Node + Express + MongoDB)
-    if (activeFilter === "MERN") {
-      return projects.filter((p) =>
-        p.tech.some((t) =>
-          ["mern", "react", "node", "express", "mongo", "mongodb", "socket"].some(
-            (keyword) => t.toLowerCase().includes(keyword)
-          )
-        )
-      );
-    }
-
-    if (activeFilter === "React") {
-      return projects.filter((p) =>
-        p.tech.some((t) => t.toLowerCase().includes("react"))
-      );
-    }
-
-    if (activeFilter === "JavaScript") {
-      return projects.filter((p) =>
-        p.tech.some((t) => t.toLowerCase().includes("javascript"))
-      );
-    }
-
-    if (activeFilter === "API") {
-      return projects.filter((p) =>
-        p.tech.some((t) => t.toLowerCase().includes("api"))
-      );
-    }
-
-    if (activeFilter === "AI / ML") {
-      return projects.filter((p) =>
-        p.tech.some((t) =>
-          ["ai", "ml", "gemini", "openai"].some((keyword) =>
-            t.toLowerCase().includes(keyword)
-          )
-        )
-      );
-    }
-
-    return projects;
+    return projects.filter((p) => p.category === activeFilter);
   }, [activeFilter]);
 
   const handleLoadMore = () => {

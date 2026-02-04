@@ -65,15 +65,6 @@ export default function Navbar() {
           >
             About
           </NavLink>
-          {/* <NavLink
-  to="/playground"
-  className={({ isActive }) =>
-    `${linkBase} ${isActive ? activeClass : inactiveClass}`
-  }
->
-  Playground
-</NavLink> */}
-
 
           {/* Theme Toggle */}
           <button

@@ -6,9 +6,7 @@ import ProjectsPage from "./Pages/ProjectPage.jsx";
 import ProjectDetail from "./Pages/ProjectDetail.jsx";
 import AboutPage from "./Pages/AboutPage.jsx";
 import ScrollToTop from "./Components/ScrollToTop.jsx";
-import AIChatBot from "./Components/AIChatBot.jsx";
 import Playground from './Pages/Playground.jsx';
-import ApiPlayground from "./Pages/ApiPlayground.jsx";
 
 
 export default function App() {
@@ -25,12 +23,8 @@ export default function App() {
           <Route path="/project/:id" element={<ProjectDetail />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/playground" element={<Playground />} />
-          {/* <Route path="/playground/api" element={<ApiPlayground />} /> */}
-
-
         </Routes>
       </main>
-      {/* <AIChatBot /> */}
       <Footer />
     </div>
   );
