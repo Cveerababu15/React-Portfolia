@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { projects } from "../Data/projectsData";
 
 export default function ProjectDetail() {
@@ -40,7 +40,7 @@ export default function ProjectDetail() {
         </p>
 
         {/* Tech */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-8">
           {project.tech.map((t, i) => (
             <span
               key={i}
@@ -49,6 +49,30 @@ export default function ProjectDetail() {
               {t}
             </span>
           ))}
+        </div>
+
+        {/* Links */}
+        <div className="flex flex-wrap gap-4">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-gray-900 dark:bg-gray-800 text-white hover:bg-gray-800 dark:hover:bg-gray-700 transition"
+            >
+              <FaGithub /> GitHub
+            </a>
+          )}
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition"
+            >
+              <FaExternalLinkAlt /> Live Demo
+            </a>
+          )}
         </div>
       </div>
     </div>
