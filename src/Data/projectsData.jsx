@@ -9,7 +9,7 @@ import ServiceBook from '../Images/ServiceBook.png'
 import RestuarentWeb from '../Images/RestuarentWeb.png'
 import Booking from '../Images/Booking.png';
 import AgroConnect from '../Images/AgroConnect.png';
-
+import RecipeFinder from '../Images/RecipeFinder.png'
 export const projects = [
   {
     id: 1,
@@ -134,5 +134,16 @@ export const projects = [
     live: "https://agro-connect-wgmn.vercel.app/",
     new: true,
     category: "MERN"
+  },
+  {
+    id: 12,
+    title: "Recipe Finder — Modern Culinary Explorer",
+    description: "Developed an interactive and eye-stunning single-page application for discovering global recipes. Features a modern glassmorphism UI, smooth hover micro-animations, dynamic search functionality, and a beautiful frosted-glass recipe details modal. Built using React and Vite, integrating TheMealDB API for live data.",
+    image: RecipeFinder,
+    tech: ["React.js", "Vite", "JavaScript", "CSS (Glassmorphism)", "TheMealDB API"],
+    github: "https://github.com/Cveerababu15/Recipe-Web-React",
+    live: "https://recipe-web-react.vercel.app/",
+    new: true,
+    category: "React"
   }
 ];
