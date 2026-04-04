@@ -10,8 +10,11 @@ export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState("All");
 
   const filteredProjects = useMemo(() => {
-    if (activeFilter === "All") return projects;
-    return projects.filter((p) => p.category === activeFilter);
+    let result = projects;
+    if (activeFilter !== "All") {
+      result = projects.filter((p) => p.category === activeFilter);
+    }
+    return [...result].reverse();
   }, [activeFilter]);
 
   const handleLoadMore = () => {

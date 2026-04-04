@@ -12,7 +12,7 @@ export default function HomePage() {
           Featured Projects
         </h2>
         <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
-          {projects.slice(0, 3).map((p) => (
+          {[...projects].reverse().slice(0, 3).map((p) => (
             <ProjectCard key={p.id} {...p} />
           ))}
         </div>

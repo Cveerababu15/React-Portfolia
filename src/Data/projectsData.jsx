@@ -10,7 +10,7 @@ import RestuarentWeb from '../Images/RestuarentWeb.png'
 import Booking from '../Images/Booking.png';
 import AgroConnect from '../Images/AgroConnect.png';
 import RecipeFinder from '../Images/RecipeFinder.png'
-import JobAppication from '../Images/JobAppication.png'
+import JobApplication from '../Images/JobApplication.png'
 export const projects = [
   {
     id: 1,
@@ -109,7 +109,7 @@ export const projects = [
     tech: ["MERN", "React.js", "Node.js", "Express.js", "MongoDB", "Cloudinary", "Tailwind CSS"],
     github: "",
     live: "",
-    new: true,
+    new: false,
     category: "MERN"
   },
   {
@@ -121,7 +121,7 @@ export const projects = [
     tech: ["MERN", "React.js", "Node.js", "Express.js", "MongoDB"],
     github: "https://github.com/Cveerababu15/BookIng-Website",
     live: "https://book-ing-website.vercel.app/",
-    new: true,
+    new: false,
     category: "MERN"
   },
   {
@@ -151,7 +151,7 @@ export const projects = [
     id: 13,
     title: "AI Job Application Tracker",
     description: "Most resumes get rejected before a human even reads them. This app reads your resume and the job description, then shows you a match score and the missing keywords — so you can fix your resume before applying. Built with the MERN stack, JWT auth, and PDF text extraction.",
-    image: JobAppication,
+    image: JobApplication,
     tech: ["MERN", "React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT","multer","pdf-parse"],
     github: "https://github.com/Cveerababu15/AI-Job-Application-Tracker",
     live: "https://ai-job-application-tracker-ten.vercel.app/",
