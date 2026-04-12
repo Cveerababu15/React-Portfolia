@@ -106,7 +106,8 @@ export default function AboutPage() {
       </motion.div>
 
       {/* Self Introduction Video Component */}
-      <motion.div
+      
+      {/* <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.45, duration: 0.6 }}
@@ -126,7 +127,6 @@ export default function AboutPage() {
             </div>
             
             <div className="w-full md:w-[60%] aspect-video bg-gray-900/10 dark:bg-black/40 rounded-2xl overflow-hidden relative shadow-inner border border-white/20 dark:border-white/10 flex items-center justify-center">
-              {/* VIDEO TAG HOLDER: The user can replace the src with their local video or add an iframe */}
               <video 
                 className="w-full h-full object-cover z-10"
                 controls
@@ -136,14 +136,14 @@ export default function AboutPage() {
                 Your browser does not support the video tag.
               </video>
               
-              {/* Optional Placeholder Text if video is missing */}
+              
               <span className="absolute text-gray-500 dark:text-gray-400 font-medium z-0">
                 Put your video here!
               </span>
             </div>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Resume Button */}
       <motion.div
