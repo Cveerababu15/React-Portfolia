@@ -19,7 +19,7 @@ export default function OngoingProjects() {
       title: "Food-Order-Website",
       description:
         "A robust food delivery application designed for speed and convenience. Features a dynamic menu, real-time cart updates, and a responsive interface tailored for both desktop and mobile foodies.",
-      tech: ["React.js", "Tailwind CSS", "Redux Toolkit", "Framer Motion"],
+      tech: ["React.js", "Tailwind CSS", "Framer Motion"],
       icon: <FaHamburger className="text-orange-500 text-5xl group-hover:scale-110 transition-transform duration-300" />,
       color: "from-orange-400 to-red-500",
       status: "Building UI",
