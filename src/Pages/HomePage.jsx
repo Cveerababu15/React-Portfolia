@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 import Hero from "../Components/Hero.jsx";
 import { projects } from "../Data/projectsData.jsx";
 import ProjectCard from "../Components/ProjectCard.jsx";
+import OngoingProjects from "../Components/OngoingProjects.jsx";
 
 export default function HomePage() {
   return (
     <div className="bg-gray-50 dark:bg-[#050816]">
       <Hero />
+      <OngoingProjects />
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-10 text-gray-900 dark:text-gray-50">
           Featured Projects

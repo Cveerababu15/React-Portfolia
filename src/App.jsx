@@ -5,8 +5,8 @@ import HomePage from "./Pages/HomePage.jsx";
 import ProjectsPage from "./Pages/ProjectPage.jsx";
 import ProjectDetail from "./Pages/ProjectDetail.jsx";
 import AboutPage from "./Pages/AboutPage.jsx";
+import GithubPage from "./Pages/GithubPage.jsx";
 import ScrollToTop from "./Components/ScrollToTop.jsx";
-import Playground from './Pages/Playground.jsx';
 
 
 export default function App() {
@@ -22,7 +22,7 @@ export default function App() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/playground" element={<Playground />} />
+          <Route path="/github" element={<GithubPage />} />
         </Routes>
       </main>
       <Footer />

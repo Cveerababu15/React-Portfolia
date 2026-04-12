@@ -65,6 +65,14 @@ export default function Navbar() {
           >
             About
           </NavLink>
+          <NavLink
+            to="/github"
+            className={({ isActive }) =>
+              `${linkBase} ${isActive ? activeClass : inactiveClass}`
+            }
+          >
+            GitHub
+          </NavLink>
 
           {/* Theme Toggle */}
           <button
@@ -134,6 +142,17 @@ export default function Navbar() {
             }
           >
             About
+          </NavLink>
+          <NavLink
+            to="/github"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) =>
+              `${linkBase} ${
+                isActive ? activeClass : inactiveClass
+              }`
+            }
+          >
+            GitHub
           </NavLink>
           
         </div>

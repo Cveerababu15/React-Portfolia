@@ -47,6 +47,7 @@ export default function AboutPage() {
             "Python",
             "Git & GitHub",
             "REST APIs",
+            "Framer Motion",
           ].map((skill) => (
             <div
               key={skill}
@@ -104,6 +105,46 @@ export default function AboutPage() {
         </div>
       </motion.div>
 
+      {/* Self Introduction Video Component */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.45, duration: 0.6 }}
+        className="max-w-4xl mx-auto px-4 sm:px-6 mt-20"
+      >
+        <div className="relative group rounded-3xl overflow-hidden shadow-2xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 backdrop-blur-md">
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <div className="p-6 md:p-8 flex flex-col md:flex-row items-center gap-8">
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-2xl sm:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-500 mb-4">
+                Self Introduction
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+                Get to know me better! In this short video, I talk about my background, my passion for software engineering, and the journey that led me to build scalable MERN applications.
+              </p>
+            </div>
+            
+            <div className="w-full md:w-[60%] aspect-video bg-gray-900/10 dark:bg-black/40 rounded-2xl overflow-hidden relative shadow-inner border border-white/20 dark:border-white/10 flex items-center justify-center">
+              {/* VIDEO TAG HOLDER: The user can replace the src with their local video or add an iframe */}
+              <video 
+                className="w-full h-full object-cover z-10"
+                controls
+                poster="/path-to-your-poster-image.jpg"
+              >
+                <source src="/path-to-your-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Optional Placeholder Text if video is missing */}
+              <span className="absolute text-gray-500 dark:text-gray-400 font-medium z-0">
+                Put your video here!
+              </span>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
       {/* Resume Button */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -112,7 +153,7 @@ export default function AboutPage() {
         className="max-w-6xl mx-auto px-4 sm:px-6 mt-20 flex justify-center sm:justify-start"
       >
         <a
-          href="https://drive.google.com/file/d/1PP1LvsZDrK-h9hDJGAenfnIrxBb3XF4M/export?format=pdf"
+          href="https://drive.google.com/file/d/1s03ZDS6LAQOPTikJzoEPQui6u-LyPbYR/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center px-7 py-3 rounded-full text-sm sm:text-base
