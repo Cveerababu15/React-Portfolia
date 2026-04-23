@@ -11,6 +11,7 @@ import Booking from '../Images/Booking.png';
 import AgroConnect from '../Images/AgroConnect.png';
 import RecipeFinder from '../Images/RecipeFinder.png'
 import JobApplication from '../Images/JobApplication.png'
+import NewsHub  from "../Images/NewsHub.png"
 export const projects = [
   {
     id: 1,
