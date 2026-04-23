@@ -157,5 +157,16 @@ export const projects = [
     live: "https://ai-job-application-tracker-ten.vercel.app/",
     new: true,
     category: "MERN"
-  }
+  },
+ {
+  id: 14,
+  title: "NewsHub — MERN News Platform with AI",
+  description: "Built a full-stack news platform where users can read, post, like, bookmark, and comment on articles. Integrated the Hugging Face Inference API with a personal access token to auto-summarize every article on creation. Features a personalized For You feed using MongoDB $in operator that matches articles to each user's saved interests, with an automatic fallback to trending news for new users. Also includes Optimistic UI for real-time view counts, JWT authentication, Cloudinary image uploads via Multer, and recursive comment-reply threads using nested MongoDB subdocuments.",
+  image: NewsHub,
+  tech: ["MERN", "React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT", "Hugging Face API", "Cloudinary", "Multer", "Framer Motion"],
+  github: "https://github.com/Cveerababu15/",
+  live: "https://news-hub-weld.vercel.app/",
+  new: true,
+  category: "MERN"
+},
 ];
