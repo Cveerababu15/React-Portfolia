@@ -1,16 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaLaptopCode, FaHamburger, FaRocket, FaExternalLinkAlt } from "react-icons/fa";
+import { FaLaptopCode, FaHamburger, FaRocket, FaExternalLinkAlt, FaBriefcase } from "react-icons/fa";
 
 export default function OngoingProjects() {
   const ongoingProjects = [
     {
       id: 1,
-      title: "Ecommerce Fullstack Web-Application",
+      title: "AI-Powered Job Portal Platform",
       description:
-        "A premium, highly interactive e-commerce platform featuring complete user authentication, a scalable product catalog, seamless shopping cart experience, and a glassmorphic user dashboard.",
-      tech: ["React.js", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
-      icon: <FaLaptopCode className="text-purple-500 text-5xl group-hover:scale-110 transition-transform duration-300" />,
+        "A comprehensive job platform featuring dual dashboards for HRs and job seekers. Includes seamless registration, profile management, and AI-assisted job matching based on candidate profiles.",
+      tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "AI Integration"],
+      icon: <FaBriefcase className="text-purple-500 text-5xl group-hover:scale-110 transition-transform duration-300" />,
       color: "from-purple-500 to-indigo-600",
       status: "In Development",
     },
