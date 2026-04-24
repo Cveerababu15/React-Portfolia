@@ -175,7 +175,7 @@ export const projects = [
   id: 15,
   title: "VeeraStore — Full Stack E-Commerce Platform",
   description: "Built a complete e-commerce platform where users can browse products, add to cart, and checkout securely. Integrated Razorpay payment gateway with server-side signature verification for end-to-end transaction security. Features dual-role access for Users and Admins — Admins can manage products, categories, and orders through a dedicated dashboard. Cart state is handled with React Context API and synced with MongoDB so users never lose their cart across sessions or devices. Also includes Cloudinary image uploads via Multer, JWT authentication with Bcrypt password hashing, and a dynamic product filtering engine that builds nested subcategory sidebars directly from live MongoDB data.",
-  image: VeeraStore,
+  image: Ecommerce,
   tech: ["MERN", "React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT", "Razorpay", "Cloudinary", "Multer", "Framer Motion", "Context API", "Bcrypt"],
   github: "https://github.com/Cveerababu15/Ecommerce_Website",
   live: "https://ecommerce-website-leyo.vercel.app/",
