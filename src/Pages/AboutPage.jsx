@@ -88,7 +88,7 @@ export default function AboutPage() {
               MERN Stack Development
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-              Created full-stack applications, REST APIs, authentication systems, 
+              Created full-stack applications, REST APIs, authentication systems,
               dashboards, and real-time features using React, Node.js, and MongoDB.
             </p>
           </div>
@@ -98,7 +98,7 @@ export default function AboutPage() {
               AI & ML Exploration
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-              Worked with AI models like Gemini to build smart tools such as AI 
+              Worked with AI models like Gemini to build smart tools such as AI
               resume builders, DSA assistants, and intelligent web utilities.
             </p>
           </div>
@@ -106,7 +106,7 @@ export default function AboutPage() {
       </motion.div>
 
       {/* Self Introduction Video Component */}
-      
+
       {/* <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -153,7 +153,7 @@ export default function AboutPage() {
         className="max-w-6xl mx-auto px-4 sm:px-6 mt-20 flex justify-center sm:justify-start"
       >
         <a
-          href="https://drive.google.com/file/d/1s03ZDS6LAQOPTikJzoEPQui6u-LyPbYR/view?usp=sharing"
+          href="https://drive.google.com/file/d/1_B7ki3HbzwljkZD8ip7hMo4Om27eNT56/view?usp=drive_link"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center px-7 py-3 rounded-full text-sm sm:text-base
