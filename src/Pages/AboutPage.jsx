@@ -153,7 +153,7 @@ export default function AboutPage() {
         className="max-w-6xl mx-auto px-4 sm:px-6 mt-20 flex justify-center sm:justify-start"
       >
         <a
-          href="https://drive.google.com/file/d/1_B7ki3HbzwljkZD8ip7hMo4Om27eNT56/view?usp=drive_link"
+          href="https://drive.google.com/file/d/1EslzxWraYBawrp7yiHpFkNAvHqtpwlcz/view?usp=drive_link"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center px-7 py-3 rounded-full text-sm sm:text-base
