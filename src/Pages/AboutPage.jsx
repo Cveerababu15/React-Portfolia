@@ -48,6 +48,9 @@ export default function AboutPage() {
             "Git & GitHub",
             "REST APIs",
             "Framer Motion",
+            "SQL",
+            "JWT Authentication",
+            "API Integration",
           ].map((skill) => (
             <div
               key={skill}
