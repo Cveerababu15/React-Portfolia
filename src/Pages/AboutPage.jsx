@@ -81,8 +81,8 @@ export default function AboutPage() {
               B.Tech in Computer Science (2021 – 2025)
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-              Built strong fundamentals in software engineering, data structures,
-              algorithms, and web development.
+              Built strong fundamentals in software engineering, data
+              structures, algorithms, and web development.
             </p>
           </div>
 
@@ -91,8 +91,9 @@ export default function AboutPage() {
               MERN Stack Development
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-              Created full-stack applications, REST APIs, authentication systems,
-              dashboards, and real-time features using React, Node.js, and MongoDB.
+              Created full-stack applications, REST APIs, authentication
+              systems, dashboards, and real-time features using React, Node.js,
+              and MongoDB.
             </p>
           </div>
 
@@ -156,7 +157,7 @@ export default function AboutPage() {
         className="max-w-6xl mx-auto px-4 sm:px-6 mt-20 flex justify-center sm:justify-start"
       >
         <a
-          href="https://drive.google.com/file/d/1JLj8dtQZH8WwGus49-TcDXJauFu6wtRI/view?usp=sharing"
+          href="https://drive.google.com/file/d/1X99R9ssM8u3PDOG7sgrJuA8lL5trx_od/view?usp=drive_link"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center px-7 py-3 rounded-full text-sm sm:text-base
