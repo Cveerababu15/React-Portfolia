@@ -22,7 +22,7 @@ export const projects = [
     image: Leet,
     tech: ["React.js", "Gemini API"],
     github: "https://github.com/Cveerababu15/AI-Resume-Maker",
-    live: "https://leet-ai-blue.vercel.app/",
+    live: "https://leet-ai-eight.vercel.app/",
     category: "AI / ML",
   },
   {
