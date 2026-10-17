@@ -157,7 +157,7 @@ export default function AboutPage() {
         className="max-w-6xl mx-auto px-4 sm:px-6 mt-20 flex justify-center sm:justify-start"
       >
         <a
-          href="https://drive.google.com/file/d/1DCb65tcY5HTdjY9EfRozAiQDl1maI7a4/view?usp=sharing"
+          href="https://drive.google.com/file/d/1TSK1sNQusGvC9N8MOF_AP-0GL5dxKvyK/view?usp=drive_link"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center px-7 py-3 rounded-full text-sm sm:text-base
