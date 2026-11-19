@@ -1,59 +1,60 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function ProjectCard({ id, title, description, image, tech, new: isNew, featured }) {
-  const navigate = useNavigate();
+/**
+ * Catalog entry. The title link is stretched over the whole entry, so the
+ * entire card is clickable while keyboard users get a single tab stop.
+ */
+export default function ProjectCard({ project, lead = false }) {
+  const { id, name, title, summary, image, imageWidth, imageHeight, imageAlt, imageKind, tech, category } =
+    project;
+  const displayName = name || title;
+  const alt =
+    imageAlt ||
+    (imageKind === "illustration"
+      ? `Illustration for ${displayName}`
+      : `Screenshot of the ${displayName} interface`);
 
   return (
-    <div 
-      onClick={() => navigate(`/project/${id}`)}
-      className="relative bg-white dark:bg-[#111827] rounded-2xl shadow-lg hover:shadow-xl transition overflow-hidden border border-gray-200 dark:border-gray-700 cursor-pointer group"
+    <article
+      className={`group relative border-t border-rule pt-4 ${
+        lead ? "grid gap-6 md:grid-cols-12 md:gap-10" : "flex flex-col"
+      }`}
     >
-
-      {/* 🆕 NEW Badge */}
-      {isNew && (
-        <span className="absolute top-3 right-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md z-10">
-          NEW
-        </span>
-      )}
-
-      {/* ⭐ FEATURED Badge */}
-      {featured && (
-        <span className="absolute top-3 left-3 bg-yellow-400 text-black text-xs font-semibold px-3 py-1 rounded-full shadow-md z-10">
-          ⭐ FEATURED
-        </span>
-      )}
-
-      <div className="overflow-hidden">
-        <img 
-          src={image} 
-          alt={title} 
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" 
+      <div
+        className={`relative overflow-hidden border border-rule bg-sunken ${lead ? "md:col-span-7" : ""}`}
+        style={{ aspectRatio: "16 / 10" }}
+      >
+        <img
+          src={image}
+          alt={alt}
+          width={imageWidth}
+          height={imageHeight}
+          loading={lead ? "eager" : "lazy"}
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
         />
+        {imageKind === "illustration" && (
+          <span className="absolute left-2 top-2 bg-bg/90 px-2 py-0.5 text-xs text-muted">
+            Illustration
+          </span>
+        )}
       </div>
 
-      <div className="p-5">
-        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2 group-hover:text-indigo-500 transition-colors">
-          {title}
+      <div className={lead ? "md:col-span-5 md:self-center" : "mt-4"}>
+        <p className="eyebrow">{category}</p>
+        <h3 className={`mt-1 ${lead ? "display text-4xl md:text-5xl" : "text-xl font-medium leading-snug"}`}>
+          <Link
+            to={`/project/${id}`}
+            className="after:absolute after:inset-0 group-hover:text-accent focus-visible:outline-none focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-offset-4 focus-visible:after:outline-accent"
+          >
+            {displayName}
+          </Link>
         </h3>
-
-        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">{description}</p>
-
-        <div className="flex flex-wrap gap-2">
-          {tech.slice(0, 3).map((t, i) => (
-            <span 
-              key={i} 
-              className="text-xs bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full"
-            >
-              {t}
-            </span>
-          ))}
-          {tech.length > 3 && (
-            <span className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-3 py-1 rounded-full">
-              +{tech.length - 3}
-            </span>
-          )}
-        </div>
+        <p className={`mt-2 text-muted ${lead ? "text-lg" : ""}`}>{summary}</p>
+        <p className="mt-3 text-sm text-muted">
+          {tech.filter((t) => t !== "MERN").slice(0, lead ? 6 : 4).join(" · ")}
+        </p>
       </div>
-    </div>
+    </article>
   );
 }

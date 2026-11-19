@@ -3,9 +3,29 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image" href="./src/assets/Veerafavicon.png" />
+  <link rel="icon" type="image/png" href="./src/assets/Veerafavicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VEERABABU_DEVELOPER</title>
+  <title>Veerababu Chakali | Full-stack developer</title>
+  <meta name="description"
+    content="Veerababu Chakali is a full-stack MERN developer in Bengaluru. Case studies of AgroConnect, JobTracker AI, and NewsHub, plus experience, skills, and résumé." />
+  <meta name="theme-color" content="#F6F4EE" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#161715" media="(prefers-color-scheme: dark)" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <script>
+    // Apply the saved theme before first paint to avoid a flash.
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) { }
+      if (t !== "light" && t !== "dark") {
+        t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      if (t === "dark") document.documentElement.classList.add("dark");
+    })();
+  </script>
 </head>
 
 <body>

@@ -2,21 +2,190 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Custom Scrollbar for a cleaner UI */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/* ---------- Tokens ---------- */
+:root {
+  --c-bg: #f6f4ee;
+  --c-surface: #fbfaf6;
+  --c-sunken: #eeebe2;
+  --c-ink: #191a18;
+  --c-muted: #5c5d57;
+  --c-rule: #d8d4c8;
+  --c-rule-strong: #191a18;
+  --c-accent: #2447d8;
+  --c-accent-hover: #1a36b0;
+  --c-on-accent: #ffffff;
+  --c-accent-soft: #e3e7f8;
+  color-scheme: light;
 }
-::-webkit-scrollbar-track {
-  background: transparent;
+
+.dark {
+  --c-bg: #161715;
+  --c-surface: #1e1f1c;
+  --c-sunken: #121311;
+  --c-ink: #f2efe7;
+  --c-muted: #aeaba2;
+  --c-rule: #33342f;
+  --c-rule-strong: #f2efe7;
+  --c-accent: #8ea5ff;
+  --c-accent-hover: #b0c0ff;
+  --c-on-accent: #10131f;
+  --c-accent-soft: #232a4a;
+  color-scheme: dark;
 }
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-sunken: var(--c-sunken);
+  --color-ink: var(--c-ink);
+  --color-muted: var(--c-muted);
+  --color-rule: var(--c-rule);
+  --color-rule-strong: var(--c-rule-strong);
+  --color-accent: var(--c-accent);
+  --color-accent-hover: var(--c-accent-hover);
+  --color-on-accent: var(--c-on-accent);
+  --color-accent-soft: var(--c-accent-soft);
+
+  --font-serif: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
-.dark ::-webkit-scrollbar-thumb {
-  background: #334155;
+
+/* ---------- Base ---------- */
+html {
+  background: var(--c-bg);
+  -webkit-text-size-adjust: 100%;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #6366f1; /* Indigo 500 when hovered */
+
+body {
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--c-accent);
+  color: var(--c-on-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Anchor targets clear the sticky header */
+[id] {
+  scroll-margin-top: 5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* ---------- Components ---------- */
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .wrap {
+      padding-inline: 2rem;
+    }
+  }
+
+  .display {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.02;
+  }
+
+  .eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--c-muted);
+  }
+
+  .link {
+    color: var(--c-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+  .link:hover {
+    color: var(--c-accent-hover);
+    text-decoration-thickness: 2px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.625rem 1.25rem;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    border-radius: 2px;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .btn-primary {
+    background: var(--c-accent);
+    color: var(--c-on-accent);
+  }
+  .btn-primary:hover {
+    background: var(--c-accent-hover);
+  }
+  .btn-quiet {
+    border: 1px solid var(--c-rule);
+    color: var(--c-ink);
+  }
+  .btn-quiet:hover {
+    border-color: var(--c-ink);
+  }
+
+  .chip {
+    display: inline-block;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--c-rule);
+    color: var(--c-muted);
+    border-radius: 2px;
+  }
+
+  .rise {
+    animation: rise 0.4s ease-out both;
+  }
+
+  .prose-body p + p {
+    margin-top: 1rem;
+  }
 }

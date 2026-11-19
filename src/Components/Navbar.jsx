@@ -1,162 +1,125 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { FiMenu, FiX, FiMoon, FiSun } from "react-icons/fi";
+
+const links = [
+  { to: "/projects", label: "Projects" },
+  { to: "/about", label: "About" },
+  { to: "/github", label: "GitHub" },
+];
+
+function readTheme() {
+  if (typeof document === "undefined") return "light";
+  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+}
+
+export function Wordmark({ className = "" }) {
+  return (
+    <span className={`whitespace-nowrap ${className}`}>
+      <span className="font-serif text-[1.6rem] leading-none tracking-tight">Veera</span>
+      <span className="font-sans text-[0.95rem] font-semibold text-accent">.dev</span>
+    </span>
+  );
+}
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || "dark"
-  );
+  const [theme, setTheme] = useState(readTheme);
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {
+      /* storage unavailable: theme still applies for this visit */
     }
-    localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  };
+  // Close the mobile menu on navigation and on Escape.
+  useEffect(() => setMenuOpen(false), [pathname]);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
-  const linkBase =
-    "text-sm md:text-base font-medium transition-colors duration-200";
-  const activeClass =
-    "text-indigo-500 dark:text-indigo-400 border-b-2 border-indigo-500 pb-1";
-  const inactiveClass =
-    "text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400";
+  const next = theme === "dark" ? "light" : "dark";
+  const linkClass = ({ isActive }) =>
+    `relative py-1 text-[0.9375rem] transition-colors ${
+      isActive
+        ? "text-ink font-medium after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:bg-accent"
+        : "text-muted hover:text-ink"
+    }`;
+
+  const themeButton = (
+    <button
+      type="button"
+      onClick={() => setTheme(next)}
+      className="inline-flex h-10 w-10 items-center justify-center border border-rule text-ink hover:border-ink"
+      aria-label={`Switch to ${next} theme`}
+      title={`Switch to ${next} theme`}
+    >
+      {theme === "dark" ? <FiSun aria-hidden="true" /> : <FiMoon aria-hidden="true" />}
+    </button>
+  );
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 dark:bg-[#050816]/80 backdrop-blur-lg shadow-md border-b border-gray-100 dark:border-gray-800">
-      <div className="max-w-6xl mx-auto flex justify-between items-center py-3 px-4 sm:px-6">
-        {/* Logo */}
-        <NavLink
-          to="/"
-          className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-tight"
-        >
-          Veera.dev
-        </NavLink>
+    <header className="sticky top-0 z-40 border-b border-rule bg-bg/95 backdrop-blur-sm">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:bg-accent focus:px-3 focus:py-2 focus:text-on-accent"
+      >
+        Skip to content
+      </a>
+      <div className="wrap flex h-16 items-center justify-between gap-4">
+        <Link to="/" aria-label="Veera.dev — home" className="text-ink">
+          <Wordmark />
+        </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center space-x-6">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `${linkBase} ${isActive ? activeClass : inactiveClass}`
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/projects"
-            className={({ isActive }) =>
-              `${linkBase} ${isActive ? activeClass : inactiveClass}`
-            }
-          >
-            Projects
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `${linkBase} ${isActive ? activeClass : inactiveClass}`
-            }
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/github"
-            className={({ isActive }) =>
-              `${linkBase} ${isActive ? activeClass : inactiveClass}`
-            }
-          >
-            GitHub
-          </NavLink>
+        <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
+          {links.map((l) => (
+            <NavLink key={l.to} to={l.to} className={linkClass}>
+              {l.label}
+            </NavLink>
+          ))}
+          {themeButton}
+        </nav>
 
-          {/* Theme Toggle */}
+        <div className="flex items-center gap-2 md:hidden">
+          {themeButton}
           <button
-  onClick={toggleTheme}
-  className="ml-4 text-xl p-2 rounded-full border border-gray-300 dark:border-gray-700 
-  hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-200 
-  transition"
-  aria-label="Toggle theme"
->
-  {theme === "dark" ? <FaSun /> : <FaMoon />}
-</button>
-
-        </div>
-
-        {/* Mobile Controls */}
-        <div className="flex items-center md:hidden gap-3">
-          <button
-            onClick={toggleTheme}
-            className="text-xl p-2 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-500 dark:hover:border-indigo-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
-            aria-label="Toggle theme"
+            type="button"
+            className="inline-flex h-10 w-10 items-center justify-center border border-rule text-ink"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
-            {theme === "dark" ? <FaSun /> : <FaMoon />}
-          </button>
-
-          <button
-            className="text-2xl text-gray-800 dark:text-gray-100"
-            onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? <FaTimes /> : <FaBars />}
+            {menuOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white dark:bg-[#050816] border-t border-gray-200 dark:border-gray-800 flex flex-col items-center py-4 space-y-3">
-          <NavLink
-            to="/"
-            onClick={() => setMenuOpen(false)}
-            className={({ isActive }) =>
-              `${linkBase} ${
-                isActive ? activeClass : inactiveClass
-              }`
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/projects"
-            onClick={() => setMenuOpen(false)}
-            className={({ isActive }) =>
-              `${linkBase} ${
-                isActive ? activeClass : inactiveClass
-              }`
-            }
-          >
-            Projects
-          </NavLink>
-          <NavLink
-            to="/about"
-            onClick={() => setMenuOpen(false)}
-            className={({ isActive }) =>
-              `${linkBase} ${
-                isActive ? activeClass : inactiveClass
-              }`
-            }
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/github"
-            onClick={() => setMenuOpen(false)}
-            className={({ isActive }) =>
-              `${linkBase} ${
-                isActive ? activeClass : inactiveClass
-              }`
-            }
-          >
-            GitHub
-          </NavLink>
-          
-        </div>
+        <nav id="mobile-menu" aria-label="Main" className="border-t border-rule bg-bg md:hidden">
+          <ul className="wrap py-2">
+            {links.map((l) => (
+              <li key={l.to} className="border-b border-rule last:border-0">
+                <NavLink
+                  to={l.to}
+                  className={({ isActive }) =>
+                    `flex min-h-12 items-center text-lg ${isActive ? "text-accent font-medium" : "text-ink"}`
+                  }
+                >
+                  {l.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
       )}
-    </nav>
+    </header>
   );
 }
